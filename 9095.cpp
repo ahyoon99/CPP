@@ -1,33 +1,4 @@
-//// 10중 포문 사용 || 재귀함수 사용
-//#include<iostream>
-//using namespace std;
-//
-//int add(int n) {
-//	if (n == 1) {
-//		return 1;
-//	}
-//	else if (n == 2) {
-//		return 2;
-//	}
-//	else {
-//
-//	}
-//}
-//
-//int main() {
-//
-//	int N;
-//	cin >> N;
-//	while (N--) {
-//		int count = 0;
-//		int number;
-//		cin >> number;
-//
-//	}
-//
-//	return 0;
-//}
-
+// 1번째 방법 : 10중 포문 사용
 #include <iostream>
 using namespace std;
 
@@ -54,7 +25,7 @@ int main() {
 						ans++;
 					}
 					for (int l4 = 1; l4 <= 3; l4++) {
-						if (l1 + l2 + l3 +l4== n) {
+						if (l1 + l2 + l3 + l4 == n) {
 							ans++;
 						}
 						for (int l5 = 1; l5 <= 3; l5++) {
@@ -95,6 +66,8 @@ int main() {
 
 	}
 
-	
+
 	return 0;
 }
+
+// 2번째 방법 :재귀함수 사용 -> 나중에 하겠다.

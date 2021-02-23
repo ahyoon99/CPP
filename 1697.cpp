@@ -20,10 +20,6 @@ void BFS(int N, int K) {
 				q.push(a - 1);
 				check[a - 1] = true;
 				dist[a - 1] = dist[a] + 1;
-				/*if (K == a - 1) {
-					cout << dist[a - 1] << "\n";
-					return;
-				}*/
 			}
 		}
 		if (a + 1 <= 100000) {
@@ -31,10 +27,6 @@ void BFS(int N, int K) {
 				q.push(a + 1);
 				check[a + 1] = true;
 				dist[a + 1] = dist[a] + 1;
-				/*if (K == a + 1) {
-					cout << dist[a + 1] << "\n";
-					return;
-				}*/
 			}
 		}
 		if (2 * a <= 100000) {
@@ -42,10 +34,6 @@ void BFS(int N, int K) {
 				q.push(2 * a);
 				check[2 * a] = true;
 				dist[a * 2] = dist[a] + 1;
-				/*if (K == 2 * a) {
-					cout << dist[2 * a] << "\n";
-					return;
-				}*/
 			}
 		}
 	}

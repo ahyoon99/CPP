@@ -67,24 +67,50 @@
 //}
 
 // 방법 3 : 1차원 배열 사용 , Bottom-Up
+//#include <iostream>
+//using namespace std;
+//
+//long long d[91];
+//
+//int main() {
+//
+//	int n;
+//	cin >> n;
+//
+//	d[1] = 1;
+//	d[2] = 1;
+//
+//	for (int i = 3; i <= n; i++) {
+//		d[i] = d[i - 1] + d[i - 2];
+//	}
+//
+//	cout << d[n] << "\n";
+//
+//	return 0;
+//}
+
+// 방법 4 : 1차원 배열 사용 , Top-Down
 #include <iostream>
 using namespace std;
 
 long long d[91];
 
+long long go(int n) {
+	if (n == 1 || n == 2) {
+		return 1;
+	}
+	if (d[n] != 0) {
+		return d[n];
+	}
+	d[n] = go(n - 1) + go(n - 2);
+	return d[n];
+}
+
 int main() {
 
 	int n;
 	cin >> n;
-
-	d[1] = 1;
-	d[2] = 1;
-
-	for (int i = 3; i <= n; i++) {
-		d[i] = d[i - 1] + d[i - 2];
-	}
-
-	cout << d[n] << "\n";
+	cout << go(n) << "\n";
 
 	return 0;
 }

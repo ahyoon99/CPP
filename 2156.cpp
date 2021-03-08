@@ -75,12 +75,71 @@
 //}
 
 // 방법 3 : 1차원 배열 사용 , Bottom-Up
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//
+//int wine[10001];
+//int d[10001];
+//
+//int main() {
+//
+//	int n;
+//	cin >> n;
+//	for (int i = 1; i <= n; i++) {
+//		cin >> wine[i];
+//	}
+//
+//	d[1] = wine[1];
+//	d[2] = wine[1] + wine[2];
+//
+//	for (int i = 3; i <= n; i++) {
+//		d[i] = d[i - 1];
+//		if (d[i] < d[i - 2] + wine[i]) {
+//			d[i] = d[i - 2] + wine[i];
+//		}
+//		if (d[i] < d[i - 3] + wine[i] + wine[i - 1]) {
+//			d[i] = d[i - 3] + wine[i] + wine[i - 1];
+//		}
+//	}
+//
+//	cout << d[n] << "\n";
+//
+//	return 0;
+//}
+
+// 방법 4 : 1차원 배열 사용 , Top-Down
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
 int wine[10001];
 int d[10001];
+
+int go(int n) {
+	if (n == 0) {
+		return 0;
+	}
+	if (n == 1) {
+		return wine[1];
+	}
+	if (n == 2) {
+		return wine[1] + wine[2];
+	}
+	if (d[n] != 0) {
+		return d[n];
+	}
+
+	d[n] = go(n - 1);
+	if (d[n] < go(n - 2) + wine[n]) {
+		d[n] = go(n - 2) + wine[n];
+	}
+	if (d[n] < go(n - 3) + wine[n - 1] + wine[n]) {
+		d[n] = go(n - 3) + wine[n - 1] + wine[n];
+	}
+
+	return d[n];
+}
 
 int main() {
 
@@ -90,20 +149,7 @@ int main() {
 		cin >> wine[i];
 	}
 
-	d[1] = wine[1];
-	d[2] = wine[1] + wine[2];
-
-	for (int i = 3; i <= n; i++) {
-		d[i] = d[i - 1];
-		if (d[i] < d[i - 2] + wine[i]) {
-			d[i] = d[i - 2] + wine[i];
-		}
-		if (d[i] < d[i - 3] + wine[i] + wine[i - 1]) {
-			d[i] = d[i - 3] + wine[i] + wine[i - 1];
-		}
-	}
-
-	cout << d[n] << "\n";
+	cout << go(n) << "\n";
 
 	return 0;
 }

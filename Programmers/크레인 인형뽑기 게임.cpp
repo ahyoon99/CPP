@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int solution(vector<vector<int>> board, vector<int> moves) {
+int solution(vector<vector<int> > board, vector<int> moves) {
     int answer = 0;
     stack <int> s;
 
